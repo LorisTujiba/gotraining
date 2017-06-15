@@ -1,13 +1,13 @@
-package strings
+package values
 
 /*============================
-	Exported and Not Exported
+	Exported and Non exported
 	==========================
 	Exported 	= can be seen by another package
-	Not Exp 	= can't be seen by another package
+	Non Exp 	= can't be seen by another package
 
 	Exported -> capitalized
-	Not Exp -> lowercase
+	Non Exp -> lowercase
 */
 
 var Name = "Joseph"
