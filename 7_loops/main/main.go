@@ -2,48 +2,48 @@ package main
 
 import "fmt"
 
-func main(){
+func main() {
 
 	/*==============
-		Single Loop
-		============
+	Single Loop
+	============
 	*/
-	for i:=0;i<10;i++{
+	for i := 0; i < 10; i++ {
 		fmt.Print(i)
 	}
 
 	fmt.Println()
 
 	/*==============
-		Nested Loop
-		============
+	Nested Loop
+	============
 	*/
-	for i:=0;i<5;i++{
-		for j:=0;j<10;j++  {
+	for i := 0; i < 5; i++ {
+		for j := 0; j < 10; j++ {
 			fmt.Print("*")
 		}
 		fmt.Println()
 	}
 
 	/*======================
-		Loop with condition
-		====================
-		No "while" in GO
-		so this is the
-		alternative
+	Loop with condition
+	====================
+	No "while" in GO
+	so this is the
+	alternative
 	*/
-	i:=0
-	for i < 10{
+	i := 0
+	for i < 10 {
 		fmt.Print(i)
 		i++
 	}
 
 	fmt.Println()
 
-	j:=0
+	j := 0
 	for {
 		fmt.Print(j)
-		if j >= 9{
+		if j >= 9 {
 			break
 		}
 		j++
@@ -52,14 +52,14 @@ func main(){
 	fmt.Println()
 
 	/*=====================
-		Break and Continue
-		===================
+	Break and Continue
+	===================
 	*/
-	k:=0
+	k := 0
 
 	for {
 		k++
-		if k % 2 ==1{
+		if k%2 == 1 {
 			continue
 		}
 		fmt.Print(k)

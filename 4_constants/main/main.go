@@ -3,43 +3,43 @@ package main
 import "fmt"
 
 /*==============================
-	const - Constant
-	============================
-	A simple value that cannot
-	be changed.
+const - Constant
+============================
+A simple value that cannot
+be changed.
 */
 
 const bebanHidup = "death & taxes"
 
 /*--------------------------
-	Define multiple constant
-	------------------------
+Define multiple constant
+------------------------
 */
 
 /*==============================
-	iota
-	============================
-	Increment, based on line.
-	reset on different
-	block.
+iota
+============================
+Increment, based on line.
+reset on different
+block.
 */
 
 const (
 	language = "GO"
-	gender = "Male"
-	A = iota //2
-	B = iota //3
-	C = iota //4
-	address = "Kebon Jeruk"
-	D = iota //6
+	gender   = "Male"
+	A        = iota //2
+	B        = iota //3
+	C        = iota //4
+	address  = "Kebon Jeruk"
+	D        = iota //6
 )
 
 const (
-	E	= iota
+	E = iota
 	F
 )
 
-func main(){
+func main() {
 
 	const pi = 3.14
 

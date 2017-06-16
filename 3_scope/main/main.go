@@ -6,29 +6,29 @@ import (
 )
 
 /*==============================
-	Package level scope
-	============================
-	Can be accessed by the whole
-	corresponding file
+Package level scope
+============================
+Can be accessed by the whole
+corresponding file
 */
 var number = 12
 
-func main(){
+func main() {
 
 	fmt.Println(number)
 	fmt.Println(calculate(7))
-	fmt.Println("I can access this because it is exported : "+ values.Name)
-	fmt.Println("I can access this because the getter is exported : "+ values.GetStatus())
+	fmt.Println("I can access this because it is exported : " + values.Name)
+	fmt.Println("I can access this because the getter is exported : " + values.GetStatus())
 }
 
 /*==============================
-	Block level scope
-	============================
-	Can be accessed by inner
-	parentheses. cant be
-	accessed by outer
-	parentheses.
+Block level scope
+============================
+Can be accessed by inner
+parentheses. cant be
+accessed by outer
+parentheses.
 */
-func calculate(input int) int{
+func calculate(input int) int {
 	return input + number
 }
