@@ -7,7 +7,9 @@ func main() {
 	/*=========================
 	If
 	=======================
-	Simply a selection
+	Simply a selection to
+	control the flow
+	of the program
 	*/
 
 	if a := 60; a > 0 && a <= 60 { //if with declaration inside
