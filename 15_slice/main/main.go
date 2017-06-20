@@ -11,7 +11,7 @@ and have a length.
 */
 
 func main(){
-	theSlice := []int{12,13,14,15,16,17,18,19}
+	theSlice := []int{12,13,14,15,16,17,18,19}//shorthand slice
 	fmt.Println(theSlice)//print all
 	fmt.Println(theSlice[2:5])//print from index 2 to 4, 5 not included
 	fmt.Println(theSlice[2])//print at index 2
@@ -27,4 +27,23 @@ func main(){
 	//fmt.Println(anotherSlice[51])//index out of range, only use append if you want to extend the capacity
 	theSlice = append(theSlice,anotherSlice...)//appending 2 slice
 	fmt.Println(theSlice)
+
+	//Slice of slice of string
+
+	records := make([][]string,0)
+
+	studentOne := make([]string,2)
+	studentOne[0]="Joseph"
+	studentOne[1]="A+"
+
+	records = append(records,studentOne)
+
+	studentTwo := make([]string,2)
+	studentTwo[0] = "Agustian"
+	studentTwo[1] = "C"
+
+	records = append(records,studentTwo)
+
+	fmt.Println(records)
+
 }
