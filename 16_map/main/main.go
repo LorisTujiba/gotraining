@@ -11,27 +11,27 @@ is nil. unordered. it
 is referenced type.
 */
 
-func main(){
+func main() {
 
 	//male(map[type of the key]type of the value)
 
 	//var greeting map[string]string //we get nill reference
 	//var greeting = map[string]string{}#1
-	var greeting = make(map[string]string)//#2
+	var greeting = make(map[string]string) //#2
 
-	greeting["Edward"] = "Good Morning"// key is edward
-	greeting["Udin"] = "Selamat Pagi"//key is udin and the value is selamat pagi
+	greeting["Edward"] = "Good Morning" // key is edward
+	greeting["Udin"] = "Selamat Pagi"   //key is udin and the value is selamat pagi
 
 	fmt.Println(greeting)
 
-	anotherGreeting := map[string]string{"John":"Soldier","Harley":"Doctor"}
+	anotherGreeting := map[string]string{"John": "Soldier", "Harley": "Doctor"}
 
-	fmt.Println(anotherGreeting["John"])//call map where having john as a key
+	fmt.Println(anotherGreeting["John"]) //call map where having john as a key
 
 	//integer key map
 	var instruments = map[int]string{
-		1:"guitar",
-		2:"bass",
+		1: "guitar",
+		2: "bass",
 	}
 	fmt.Println(instruments)
 }
