@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"encoding/json"
+	"os"
+	"strings"
 )
 
 /*=============================================================
@@ -63,4 +65,22 @@ Unmarshal - Example
 	fmt.Println(names)
 	fmt.Println(jakiro)
 
+/*===================
+Encoding - Example
+===================
+*/
+	json.NewEncoder(os.Stdout).Encode(jakiro)
+
+/*===================
+Decoding - Example
+===================
+*/
+
+	var reader = strings.NewReader(`{"Name":"Ray Toro","Hp":500,"Mp":400}`)
+	json.NewDecoder(reader).Decode(&jakiro)
+	fmt.Println(jakiro.Name)
+	fmt.Println(jakiro.Hp)
+	fmt.Println(jakiro.Mp)
+
 }
+
