@@ -28,7 +28,9 @@ Print Yes if he can use the magazine to create an untraceable replica of his ran
 var magazineLen, ransomLen, used int
 var magazine, ransom string
 var splitMagazine, splitRansom []string
-var magazineBuckets = make(map[int]string)
+var magazineBuckets = make([][]string,12)
+var ransomBuckets = make([][]string,12)
+var notAvailable = ""
 
 func main(){
 
@@ -45,7 +47,11 @@ func main(){
 
 	//Index words based on the first letter
 	for i:= 0; i<magazineLen;i++{
-		magazineBuckets[hash(splitMagazine[i])] = splitMagazine[i]
+		magazineBuckets[hash(splitMagazine[i])] = append(magazineBuckets[hash(splitMagazine[i])],splitMagazine[i])
+	}
+
+	for i:= 0; i<ransomLen;i++{
+		ransomBuckets[hash(splitRansom[i])] = append(ransomBuckets[hash(splitRansom[i])],splitRansom[i])
 	}
 
 	check()
@@ -53,23 +59,28 @@ func main(){
 }
 
 func hash(word string) int{
-	return int(word[0])-65
+	letter := int(word[0])
+	buckets := letter % 12
+	return buckets
 }
+
 func check(){
-	for i:=0; i<ransomLen; i++{
-		value := hash(splitRansom[i])
-		if len(magazineBuckets[value])!=0 {
-			for j := 0; j < len(magazineBuckets[value]); j++ { // loop based on the corresponding initial
-				if splitRansom[i] == magazineBuckets[value][j] {
-					fmt.Println("asda",len(magazineBuckets[value]))
-					used++
-					magazineBuckets[value][j] = ""
-					fmt.Println("asda",len(magazineBuckets[value]))
-					break
+
+	for i:=0; i<len(ransomBuckets); i++{
+		if len(ransomBuckets[i]) != 0{
+			for j:=0; j<len(ransomBuckets[i]); j++{
+				for k:=0; k< len(magazineBuckets);k++{
+					if len(magazineBuckets[k]) != 0 {
+						for n:=0;n<len(magazineBuckets[k]);n++{
+							if ransomBuckets[i][j]==magazineBuckets[k][n]{
+								used++
+								magazineBuckets[k] = append(magazineBuckets[k][:n], magazineBuckets[k][n+1:]...)
+								break
+							}
+						}
+					}
 				}
 			}
-		}else{
-			break
 		}
 	}
 	if used == ransomLen{
