@@ -9,22 +9,21 @@ the first 10 terms will be:
 	By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the
 even-valued terms.*/
 
-func fibonacci(input int) int{
+func fibonacci(input int) int {
 
 	var lh = 0
 	var rh = 1
 	var eh int
 	var even int
 
-
-	for i:=0;i<input;i++{
-		eh = lh+rh
-		lh=rh
-		rh=eh
-		if eh%2==0{
-			even+=eh
+	for i := 0; i < input; i++ {
+		eh = lh + rh
+		lh = rh
+		rh = eh
+		if eh%2 == 0 {
+			even += eh
 		}
-		if eh > 4000000{
+		if eh > 4000000 {
 			eh = lh
 			break
 		}
@@ -33,7 +32,7 @@ func fibonacci(input int) int{
 	return even
 }
 
-func main(){
+func main() {
 
 	fmt.Println(fibonacci(50))
 }
