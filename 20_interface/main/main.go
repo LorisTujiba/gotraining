@@ -25,7 +25,7 @@ type triangle struct{
 //Interface, support polymorphism-ish
 
 type shape interface{
-	area() float64 // every struct that have this function are a shape
+	area() float64 // every struct that have this function are implementing shape
 }
 
 func (s square) area() float64{// square implementing the shape

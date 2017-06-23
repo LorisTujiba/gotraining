@@ -30,9 +30,12 @@ func main() {
 }
 
 func reset(input int) {
-	fmt.Printf("Reset's variable address \t\t: %v\n", &input) //differ from the main,
-	// cuz its passed by value.
-	// Not reference
+	fmt.Printf("Reset's variable address \t\t: %v\n", &input)
+	/*------------------------------
+		differ from the one in main,
+	 	cuz its passed by value.
+	 	Not reference
+	 -----------------------------*/
 	input = 0
 }
 

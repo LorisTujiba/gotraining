@@ -20,9 +20,9 @@ func main() {
 	fmt.Printf("Height : %v\n", height)
 	fmt.Printf("Male : %v\n", isaMale)
 
-	/*------------------------------------
+	/*===================
 	Determine the types
-	----------------------------------
+	===================
 	*/
 
 	fmt.Printf("Name : %T\n", name)

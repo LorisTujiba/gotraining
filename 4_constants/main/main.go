@@ -11,14 +11,9 @@ be changed.
 
 const bebanHidup = "death & taxes"
 
-/*--------------------------
-Define multiple constant
-------------------------
-*/
-
-/*==============================
-iota
-============================
+/*===============================
+iota & Define multiple constant
+===============================
 Increment, based on line.
 reset on different
 block.

@@ -10,9 +10,9 @@ func main() {
 	Simply a selection to
 	control the flow
 	of the program
-	------------------------------
+	================================
 	Boolean Expression
-	------------------------------
+	==============================
 	&& both condition must be true
 	|| one of them must be true
 	! negate
