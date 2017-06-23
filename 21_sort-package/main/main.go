@@ -129,6 +129,8 @@ func main(){
 	i := sort.Reverse(sort.StringSlice(st))
 	fmt.Println(i)
 	fmt.Printf("%T",i)//balikin nya pointer sort.reverse
+	sort.Sort(i)//baru bisa
+	fmt.Println("sfd",st)//balik lagi deh
 
 
 
