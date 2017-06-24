@@ -30,33 +30,33 @@ func main() {
 
 	//integer key map
 	var instruments = map[int]string{
-		1:"guitar",
-		2:"bass",
-		3:"drum",
-		4:"keyboard",
-		5:"Saxophone",
+		1: "guitar",
+		2: "bass",
+		3: "drum",
+		4: "keyboard",
+		5: "Saxophone",
 	}
 	fmt.Println(instruments)
-	delete(instruments,5)//delete the value that has 5 as the key
+	delete(instruments, 5) //delete the value that has 5 as the key
 
 	//delete(instruments,2)
 
-	if val,exist := instruments[2];exist{ //exist is comma ok idiom
+	if val, exist := instruments[2]; exist { //exist is comma ok idiom
 		fmt.Println(val)
 		fmt.Println(exist)
-	}else {
+	} else {
 		fmt.Println("it doesnt exist")
 	}
 
 	//map inside a map
-	var mapInside = map[int] map[string]string{
-		1:map[string]string{
-			"name":"Josh",
-			"origin":"US",
+	var mapInside = map[int]map[string]string{
+		1: map[string]string{
+			"name":   "Josh",
+			"origin": "US",
 		},
-		2:map[string]string{
-			"name":"Claire",
-			"origin":"Canada",
+		2: map[string]string{
+			"name":   "Claire",
+			"origin": "Canada",
 		},
 	}
 
@@ -64,9 +64,8 @@ func main() {
 
 	//map traversing, can be done using for range
 
-	for index,instrument := range instruments{
-		fmt.Println("Index : ",index,"Instrument : ",instrument)
+	for index, instrument := range instruments {
+		fmt.Println("Index : ", index, "Instrument : ", instrument)
 	}
 
 }
-

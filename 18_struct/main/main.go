@@ -55,6 +55,25 @@ func (input staff) greeting() string {
 
 type codeName int
 
+/*----------------------------------------
+Printing - effective go
+If you want to control the default format
+for a custom type, all that's required is
+to define a method with the signature
+String() string on the type. For our
+simple type T, that might look like
+this.
+
+func (t *T) String() string {
+    return fmt.Sprintf("%d/%g/%q", t.a, t.b, t.c)
+}
+fmt.Printf("%v\n", t)
+------------------------------------------*/
+
+func (s human) String() string {
+	return fmt.Sprintf("My name is %s and im %d years old", s.name, s.age)
+}
+
 func main() {
 
 	var myCode codeName
@@ -68,7 +87,8 @@ func main() {
 		165.3,
 	}
 
-	fmt.Println(Agustian)
+	fmt.Printf("%v\n", Agustian) //kena di fungsi string
+	fmt.Println(Agustian)        //sama kena juga
 	fmt.Println("Hi, my name is ", Agustian.name)
 	fmt.Println("I'm ", Agustian.age, " years old!")
 	fmt.Println("This is the on using underlying type : ", myCode)

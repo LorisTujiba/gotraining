@@ -1,8 +1,8 @@
 package main
 
 import (
-	"sort"
 	"fmt"
+	"sort"
 )
 
 /*===================================================
@@ -14,7 +14,7 @@ harus buat isi nya sendiri. Mirip adapter
 di java android. Cuman sediain template
 yang umum dan bisa di implement obj
 lain.
- */
+*/
 
 type subjectCoordinator []string
 
@@ -41,21 +41,21 @@ type Interface interface {
 jadi bisa pakai fungsi itu untuk implement sort package
 */
 
-func (input subjectCoordinator) Len() int{//Len dari sort package, jadi skrg subjectCoordinator implementing sort package
+func (input subjectCoordinator) Len() int { //Len dari sort package, jadi skrg subjectCoordinator implementing sort package
 	return len(input)
 }
 
-func (input subjectCoordinator) Swap(i,j int){//dari sort package
-	input[i],input[j] = input[j],input[i]
+func (input subjectCoordinator) Swap(i, j int) { //dari sort package
+	input[i], input[j] = input[j], input[i]
 }
 
-func (input subjectCoordinator) Less(i, j int) bool{//dari sort package
+func (input subjectCoordinator) Less(i, j int) bool { //dari sort package
 	return input[i] < input[j]
 }
 
-func main(){
+func main() {
 
-	subcos := subjectCoordinator{"Loris","Agustian","William","Rio","Hengky","Hendra","Even","Goldwin","Christina"}
+	subcos := subjectCoordinator{"Loris", "Agustian", "William", "Rio", "Hengky", "Hendra", "Even", "Goldwin", "Christina"}
 	/*--------------------------------------------------------------
 		type StringSlice
 			func (p StringSlice) Len() int
@@ -68,31 +68,31 @@ func main(){
 		the string slice, we can access those methods. kalau
 		string of slice ga bisa.
 	--------------------------------------------------------------*/
-	sort.Sort(subcos)//sort terima parameter tipe interface, type salah satunya
+	sort.Sort(subcos) //sort terima parameter tipe interface, type salah satunya
 	fmt.Println(subcos)
 
-	s := []string{"Zeno","John","Al","Jenny"}//ini slice of string, bukan string slice
+	s := []string{"Zeno", "John", "Al", "Jenny"} //ini slice of string, bukan string slice
 	/*=====
 	Cara 1
 	======*/
-	sort.StringSlice(s).Sort()//Convert s to string slice from slice of string
+	sort.StringSlice(s).Sort() //Convert s to string slice from slice of string
 	//so this object is implementing sort package. Mana yang di implement? yang String Slice
 	//Jadi bisa pakai fungsi-fungsi StringSlice one of which is Sort. Kalau ga diubah kan jadi ga punya len, swap
 	//Jadi ga bisa sort
 	//sort.Sort(s) cannot use s as type interface
 	fmt.Println(s)
-	fmt.Printf("%T",s)//bentuknya slice of string
+	fmt.Printf("%T", s) //bentuknya slice of string
 
 	/*=====
 	Cara 2
 	======*/
-	st := []string{"Zeno","John","Al","Jenny"}
-	sort.Sort(sort.StringSlice(st))//sort.Sort itu dari package, terus argumen nya kita ubah si s(slice of String) jadi String Slice.
+	st := []string{"Zeno", "John", "Al", "Jenny"}
+	sort.Sort(sort.StringSlice(st)) //sort.Sort itu dari package, terus argumen nya kita ubah si s(slice of String) jadi String Slice.
 	fmt.Println(st)
 
 	//buktinya
 	st2 := sort.StringSlice(st)
-	fmt.Printf("%T",st2)//balikin nya StringSlice. knp di ubah ke StringSlice?
+	fmt.Printf("%T", st2) //balikin nya StringSlice. knp di ubah ke StringSlice?
 	//biar bisa implement package sort. liat di documentasi atas tadi.
 
 	/*=====
@@ -102,7 +102,7 @@ func main(){
 	func Strings(a []string)// yang ini terima slice of string
 	------------------------------------------------- ---------
 	*/
-	str := []string{"Zeno","John","Al","Jenny"}
+	str := []string{"Zeno", "John", "Al", "Jenny"}
 	sort.Strings(str)
 	fmt.Println(str)
 
@@ -112,7 +112,7 @@ func main(){
 	Reverse exercise
 	*/
 	//reverse subco (type)
-	sort.Sort(sort.Reverse(subcos))//sort need an interface, so we give the reverse
+	sort.Sort(sort.Reverse(subcos)) //sort need an interface, so we give the reverse
 	//krn reversenya balikin interface
 	fmt.Println(subcos)
 
@@ -128,13 +128,16 @@ func main(){
 	//Reverese overrides less method and returns the address of the modified interface
 	i := sort.Reverse(sort.StringSlice(st))
 	fmt.Println(i)
-	fmt.Printf("%T",i)//balikin nya pointer sort.reverse
-	sort.Sort(i)//baru bisa
-	fmt.Println("sfd",st)//balik lagi deh
+	fmt.Printf("%T", i)    //balikin nya pointer sort.reverse
+	sort.Sort(i)           //baru bisa
+	fmt.Println("sfd", st) //balik lagi deh
 
+	/*=======================
+	Sort integer
+	=======================
+	*/
+	n := []int{7, 4, 8, 2, 9, 19, 12, 32, 3}
 
-
-
-
-//n:= []int{7,4,8,2,9,19,12,32,3}
+	sort.Ints(n)
+	fmt.Println(n)
 }

@@ -1,8 +1,8 @@
 package main
 
 import (
-	"fmt"
 	"encoding/json"
+	"fmt"
 	"os"
 	"strings"
 )
@@ -20,61 +20,60 @@ Unmarshal/decode. Both do the same, except for:
 	from an API
 */
 
-
 /*=================
 Marshal - Example
 =================
 */
-type Hero struct{
-	Name string//must be exported, if its not then it will not shows up
-	Hp int `json:"-"`//using tags, telling json to exclude this property
-	Mp int `json:"change the key to this"`//tags also
+type Hero struct {
+	Name string //must be exported, if its not then it will not shows up
+	Hp   int    `json:"-"`                      //using tags, telling json to exclude this property
+	Mp   int    `json:"change the key to this"` //tags also
 }
 
-func main(){
+func main() {
 
-	names := []string{"John","Adam","Eve"}
+	names := []string{"John", "Adam", "Eve"}
 
 	fmt.Println(names)
 	bs, _ := json.Marshal(names)
 
-	fmt.Println(bs)// 91 34 74 111 ....
+	fmt.Println(bs) // 91 34 74 111 ....
 	//91 is Ascii for J, so we can see that its translating
-	fmt.Println(string(bs))//conversion to string, get the actual json
+	fmt.Println(string(bs)) //conversion to string, get the actual json
 
 	var jakiro = Hero{
 		"Jakiro",
 		550,
 		400,
 	}
-	byteSlice,_ := json.Marshal(jakiro)
+	byteSlice, _ := json.Marshal(jakiro)
 	fmt.Println(byteSlice)
 	fmt.Println(string(byteSlice))
 
-/*===================
-Unmarshal - Example
-===================
-*/
+	/*===================
+	  Unmarshal - Example
+	  ===================
+	*/
 
 	supposedThisIsJonFromAnAPI := []byte(`["Mogul Khan","Lanaya","Fransiskarosa"]`)
 	supposedThisIsJonFromAnAPI2 := []byte(`{"Name":"Mogul Khan","Hp":800,"Mp":250}`)
 
-	json.Unmarshal(supposedThisIsJonFromAnAPI,&names)//unmarshall to names addres
-	json.Unmarshal(supposedThisIsJonFromAnAPI2,&jakiro)//unmarshall to names addres
+	json.Unmarshal(supposedThisIsJonFromAnAPI, &names)   //unmarshall to names addres
+	json.Unmarshal(supposedThisIsJonFromAnAPI2, &jakiro) //unmarshall to names addres
 
 	fmt.Println(names)
 	fmt.Println(jakiro)
 
-/*===================
-Encoding - Example
-===================
-*/
+	/*===================
+	  Encoding - Example
+	  ===================
+	*/
 	json.NewEncoder(os.Stdout).Encode(jakiro)
 
-/*===================
-Decoding - Example
-===================
-*/
+	/*===================
+	  Decoding - Example
+	  ===================
+	*/
 
 	var reader = strings.NewReader(`{"Name":"Ray Toro","Hp":500,"Mp":400}`)
 	json.NewDecoder(reader).Decode(&jakiro)
@@ -83,4 +82,3 @@ Decoding - Example
 	fmt.Println(jakiro.Mp)
 
 }
-
