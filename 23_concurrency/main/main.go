@@ -12,11 +12,15 @@ import (
 go - Concurrency & Parallelism
 ===================================
 Is the composition of independently
-executing process.
+executing process. Dealing with
+lots of things at once.
 command : go
 While, parallelism is like
 doing many things at the
-same time.
+same time. Doing lots
+of things at once.
+
+Concurrency is not Parallelism.
 */
 
 var wait sync.WaitGroup //batasin 2 aja yang jalan
@@ -26,8 +30,8 @@ var counter int64
 func main(){
 
 	//go foo()
-	//go john() can't run, because there can be only 2 process simultaneously. Currently there are 3 plus the main
-	//therefore, we use the waitgroup
+	//go john()Currently there are 3 routines, main, foo bar. 3 of them run simultaneously. But the main ended first.
+	//so, nothing happened. therefore, we use the waitgroup to hold the func main
 
 	wait.Add(2)
 	go foo()
@@ -40,12 +44,17 @@ func main(){
 	Condition where two process accessing
 	the same variables, resulting in
 	overwriting the variable. so,
-	we can use mutex to solve
+	we can use mutex (mutually
+	exclusive) to solve
 	this condition.
+
+	run with --race to check if there's
+	a race condition
 	*/
-	wait.Add(2)
+	wait.Add(3)
 	go incrementor("Foo :")
 	go incrementor("Bar :")
+	go incrementor("john :")
 	wait.Wait()
 	fmt.Println("Final Counter : ",counter)
 
