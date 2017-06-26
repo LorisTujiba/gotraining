@@ -2,19 +2,28 @@ package main
 
 import "fmt"
 
-func main(){
-	c := incrementor()
+func main() {
+	//as an argument
+	c := incrementer()
 	cSum := puller(c)
 
-	for n := range cSum{
+	for n := range cSum {
 		fmt.Println(n)
 	}
+
+	// Incrementer with channel
+	c1 := incrementer()
+	c2 := incrementer()
+	c3 := puller(c1)
+	c4 := puller(c2)
+
+	fmt.Println(<-c3, <-c4) //holding the main to exit, remember. wait to receive the baton
 }
 
-func incrementor() chan int{
+func incrementer() chan int {
 	out := make(chan int)
-	go func (){
-		for i:=0;i< 10;i++{
+	go func() {
+		for i := 0; i < 10; i++ {
 			out <- i
 		}
 		close(out)
@@ -22,17 +31,15 @@ func incrementor() chan int{
 	return out
 }
 
-func puller(c chan int)chan int{
+func puller(c chan int) chan int {
 	out := make(chan int)
-
-	go func (){
+	go func() {
 		var sum int
-		for n := range c{
+		for n := range c {
 			sum += n
 		}
 		out <- sum
 		close(out)
 	}()
-
 	return out
 }

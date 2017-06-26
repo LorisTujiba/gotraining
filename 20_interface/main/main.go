@@ -40,7 +40,7 @@ func (t triangle) area() float64 { // triangle implementing the shape
 	return (t.alas * t.tinggi) / 2
 }
 
-func (s *square) areaWithPointerReceiver() float64{
+func (s *square) areaWithPointerReceiver() float64 {
 	return s.lebar * s.lebar
 }
 
@@ -73,15 +73,15 @@ func main() {
 	may hold values of any type
 	usually handles values of
 	unknown type.
-	 */
+	*/
 
-	Labrador := emptyinterface.Dog{emptyinterface.Animal{"Labrador Retriever"},32}
-	Pony := emptyinterface.Horse{emptyinterface.Animal{"Pony"},100}
-	Shark := emptyinterface.Fish{emptyinterface.Animal{"Shark"},true}
+	Labrador := emptyinterface.Dog{emptyinterface.Animal{"Labrador Retriever"}, 32}
+	Pony := emptyinterface.Horse{emptyinterface.Animal{"Pony"}, 100}
+	Shark := emptyinterface.Fish{emptyinterface.Animal{"Shark"}, true}
 
-	animals := []emptyinterface.Animals{Labrador, Pony, Shark}// those types, can be stored inside animals
+	animals := []emptyinterface.Animals{Labrador, Pony, Shark} // those types, can be stored inside animals
 	//because everything implements animal
-	animals2 := []interface{}{Labrador, Pony, Shark}//cara 2
+	animals2 := []interface{}{Labrador, Pony, Shark} //cara 2
 
 	fmt.Println(animals)
 	fmt.Println(animals2)
@@ -96,12 +96,12 @@ func main() {
 	values			Receivers
 	T				(t T)
 	*T				(t T) and (t *T)
-	 */
-	values.PrintSeparation("=",50)
+	*/
+	values.PrintSeparation("=", 50)
 	info(&kotak)
-	values.PrintSeparation("=",10)
+	values.PrintSeparation("=", 10)
 	info(&kotak)
-	values.PrintSeparation("=",10)
+	values.PrintSeparation("=", 10)
 	//infoWithPointerReceiver(kotak)// will not work
-	infoWithPointerReceiver(&kotak)//this will work
+	infoWithPointerReceiver(&kotak) //this will work
 }

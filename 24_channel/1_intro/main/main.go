@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
-	"time"
-	"sync"
 	"github.com/LorisTujiba/gotraining/3_scope/values"
+	"sync"
+	"time"
 )
 
 /*===========================================
@@ -16,21 +16,21 @@ sharing memory,instead, share
 memory by communicating.
 */
 
-func main(){
+func main() {
 
-	c := make(chan int)//create channel that has int type, unbuffered channel
+	c := make(chan int) //create channel that has int type, unbuffered channel
 	//so far,make used to create maps, channels and slices only
 	//these three types must be initialized before use
 
-	go func(){
-		for i:=0;i<10;i++{
+	go func() {
+		for i := 0; i < 10; i++ {
 			c <- i // pass the counter to the channel //1
 		}
-	}()//anon self executed function
+	}() //anon self executed function
 
-	go func(){
-		for{
-			fmt.Println("Channel value :",<-c)// channel : "give me whatever values there!" //2
+	go func() {
+		for {
+			fmt.Println("Channel value :", <-c) // channel : "give me whatever values there!" //2
 		}
 	}()
 
@@ -53,19 +53,19 @@ func main(){
 
 	c2 := make(chan int)
 
-	go func (){
-		for i:=0;i<10;i++{
+	go func() {
+		for i := 0; i < 10; i++ {
 			c2 <- i
 		}
-		close(c2)//when we're done putting values to the channel, close the channel
+		close(c2) //when we're done putting values to the channel, close the channel
 		//when it's close, we cant put a value inside channel, but the channel
 		//still receiving the value
 	}()
 
-	for n := range c2{
+	for n := range c2 {
 		fmt.Print(n)
 	}
 
 	fmt.Println()
-	values.PrintSeparation("=",40)
+	values.PrintSeparation("=", 40)
 }

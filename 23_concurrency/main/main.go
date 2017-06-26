@@ -1,11 +1,11 @@
 package main
 
 import (
-	"sync"
 	"fmt"
-	"time"
 	"math/rand"
+	"sync"
 	"sync/atomic"
+	"time"
 )
 
 /*===================================
@@ -27,7 +27,7 @@ var wait sync.WaitGroup //batasin 2 aja yang jalan
 var mutex sync.Mutex
 var counter int64
 
-func main(){
+func main() {
 
 	//go foo()
 	//go john()Currently there are 3 routines, main, foo bar. 3 of them run simultaneously. But the main ended first.
@@ -56,7 +56,7 @@ func main(){
 	go incrementor("Bar :")
 	go incrementor("john :")
 	wait.Wait()
-	fmt.Println("Final Counter : ",counter)
+	fmt.Println("Final Counter : ", counter)
 
 	/*=====================================
 	Atomicity
@@ -69,43 +69,41 @@ func main(){
 	go incrementorAtomic("Foo :")
 	go incrementorAtomic("Bar :")
 	wait.Wait()
-	fmt.Println("Final Counter : ",counter)
+	fmt.Println("Final Counter : ", counter)
 }
 
-func incrementor(s string){
-	for i:= 0;i<20;i++{
-		time.Sleep(time.Duration(rand.Intn(20))* time.Millisecond)
+func incrementor(s string) {
+	for i := 0; i < 20; i++ {
+		time.Sleep(time.Duration(rand.Intn(20)) * time.Millisecond)
 		mutex.Lock()
 		counter++
-		fmt.Println(s,i,"Counter",counter)
+		fmt.Println(s, i, "Counter", counter)
 		mutex.Unlock()
 	}
 	wait.Done()
 }
 
-
-func incrementorAtomic(s string){
-	for i:= 0;i<20;i++{
-		time.Sleep(time.Duration(rand.Intn(20))* time.Millisecond)
-		atomic.AddInt64(&counter,1)
-		fmt.Println(s,i,"Counter",counter)
+func incrementorAtomic(s string) {
+	for i := 0; i < 20; i++ {
+		time.Sleep(time.Duration(rand.Intn(20)) * time.Millisecond)
+		atomic.AddInt64(&counter, 1)
+		fmt.Println(s, i, "Counter", counter)
 	}
 	wait.Done()
 }
 
-
-func foo(){
-	for i:=0;i<100;i++{
-		fmt.Println("foo : ",i)
+func foo() {
+	for i := 0; i < 100; i++ {
+		fmt.Println("foo : ", i)
 		time.Sleep(3000)
 		//time.Sleep(time.Duration(3*time.Millisecond)
 	}
 	wait.Done()
 }
 
-func john(){
-	for i:=0;i<100;i++{
-		fmt.Println("john : ",i)
+func john() {
+	for i := 0; i < 100; i++ {
+		fmt.Println("john : ", i)
 		time.Sleep(3000)
 	}
 	wait.Done()

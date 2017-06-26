@@ -1,22 +1,22 @@
 package emptyinterface
 
-type Animals interface {}//no method just empty interface
+type Animals interface{} //no method just empty interface
 
-type Animal struct{
+type Animal struct {
 	Breed string
 }
 
-type Horse struct{
+type Horse struct {
 	Animal
 	Power int
 }
 
-type Dog struct{
+type Dog struct {
 	Animal
 	Speed int
 }
 
-type Fish struct{
+type Fish struct {
 	Animal
 	Mammal bool
 }
