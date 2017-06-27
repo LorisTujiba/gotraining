@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/LorisTujiba/gotraining/3_scope/values"
+	"github.com/LorisTujiba/gotraining/03_scope/values"
 )
 
 /*==============================

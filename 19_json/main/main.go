@@ -24,6 +24,8 @@ Unmarshal/decode. Both do the same, except for:
 Marshal - Example
 =================
 */
+
+//Hero exported
 type Hero struct {
 	Name string //must be exported, if its not then it will not shows up
 	Hp   int    `json:"-"`                      //using tags, telling json to exclude this property

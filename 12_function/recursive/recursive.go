@@ -7,6 +7,7 @@ A Function that call itself
 over and over again
 */
 
+//Factorial algorithm
 func Factorial(input int) int {
 	if input == 1 {
 		return 1

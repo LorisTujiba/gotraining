@@ -22,15 +22,21 @@ block.
 const (
 	language = "GO"
 	gender   = "Male"
-	A        = iota //2
-	B        = iota //3
-	C        = iota //4
-	address  = "Kebon Jeruk"
-	D        = iota //6
+	//A is Exported
+	A = iota //2
+	//B is Exported
+	B = iota //3
+	//C is Exported
+	C       = iota //4
+	address = "Kebon Jeruk"
+	//D is Exported
+	D = iota //6
 )
 
 const (
+	//E is exported
 	E = iota
+	//F is exported
 	F
 )
 

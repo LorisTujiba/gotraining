@@ -11,8 +11,8 @@ func main() {
 	==================
 	changing data type
 	*/
-	var x int = 21
-	var y float64 = 60.2
+	var x = 21
+	var y = 60.2
 
 	fmt.Println(x * int(y))     //float to int conversion (narrowing)
 	fmt.Println(float64(x) * y) //int to float conversion (widening)

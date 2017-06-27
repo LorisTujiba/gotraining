@@ -3,7 +3,7 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"github.com/LorisTujiba/gotraining/3_scope/values"
+	"github.com/LorisTujiba/gotraining/03_scope/values"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -37,8 +37,8 @@ func main() {
 	buckets := make([]int, 200) //create slice to hold counts
 
 	for scanner.Scan() { //loop the words
-		n := HashBucket(scanner.Text())
-		//n := HashBucketDividebyTwelve(scanner.Text())
+		n := hashBucket(scanner.Text())
+		//n := hashBucketDividebyTwelve(scanner.Text())
 		buckets[n]++
 	}
 
@@ -87,7 +87,7 @@ func main() {
 
 	for scanner.Scan() {
 		word := scanner.Text() //getting each word
-		n := HashBucketDividebyTwelve(word)
+		n := hashBucketDividebyTwelve(word)
 		buckets2[n] = append(buckets2[n], word)
 	}
 
@@ -102,12 +102,12 @@ func main() {
 
 }
 
-func HashBucket(word string) int {
+func hashBucket(word string) int {
 	asciiValue := int(word[0]) //get the first letter and convert to number(Ascii)
 	return asciiValue
 }
 
-func HashBucketDividebyTwelve(word string) int { //break down into 12 buckets
+func hashBucketDividebyTwelve(word string) int { //break down into 12 buckets
 	letter := int(word[0])
 	buckets := letter % 12
 	return buckets

@@ -38,7 +38,7 @@ func main() {
 	initialization
 	*/
 
-	var brand string = "Mango"
+	var brand = "Mango"
 
 	fmt.Println(brand)
 

@@ -2,8 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/LorisTujiba/gotraining/3_scope/values"
-	"sync"
+	"github.com/LorisTujiba/gotraining/03_scope/values"
 	"time"
 )
 

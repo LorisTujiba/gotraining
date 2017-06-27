@@ -9,7 +9,7 @@ func main() {
 	fmt.Printf("Value \t\t\t\t\t: %v\n", a)
 	fmt.Printf("Address \t\t\t\t: %v\n", &a)
 
-	var pointOfA *int = &a
+	var pointOfA = &a
 
 	fmt.Printf("Value of Pointer (memaddress) \t\t: %v\n", pointOfA)
 	//Dereferencing

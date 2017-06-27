@@ -14,7 +14,7 @@ func main() {
 	to break each case
 	*/
 
-	var input int = 0
+	var input int
 	for input < 1 || input > 7 {
 		fmt.Print("Input day number : ")
 		fmt.Scan(&input)
