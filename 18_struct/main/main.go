@@ -70,7 +70,7 @@ func (t *T) String() string {
 fmt.Printf("%v\n", t)
 ------------------------------------------*/
 
-func (s human) String() string {
+func (input human) String() string {
 	return fmt.Sprintf("My name is %s and im %d years old", s.name, s.age)
 }
 
